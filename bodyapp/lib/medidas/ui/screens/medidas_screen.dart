@@ -1,5 +1,6 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class MedidasScreen extends StatelessWidget {
   const MedidasScreen({Key? key}) : super(key: key);
@@ -49,20 +50,84 @@ class MedidasScreen extends StatelessWidget {
               ),
             ),
             NestedMeasureWidget(
-              top: 188,
+              top: 160,
               left: 0,
               width: width * .5,
               label: 'Pescoço',
               value: '95',
-              measure: ' cm',
             ),
             NestedMeasureWidget(
-              top: 188 + 48,
+              top: 220,
               left: 0,
-              width: width * .6,
+              width: width * .65,
               label: 'Peito',
               value: '95',
-              measure: ' cm',
+            ),
+            NestedMeasureWidget(
+              top: 280,
+              left: 60,
+              width: (width - 130) * .5,
+              label: 'Biceps',
+              value: '95',
+            ),
+            NestedMeasureWidget(
+              top: 340,
+              left: 0,
+              width: width * .65,
+              label: 'Cintura',
+              value: '95',
+            ),
+            NestedMeasureWidget(
+              top: 400,
+              left: 10,
+              width: (width - 20) * .5,
+              label: 'Quadril',
+              value: '95',
+            ),
+            NestedMeasureWidget(
+              top: 460,
+              left: 10,
+              width: (width - 26) * .65,
+              label: 'Peito',
+              value: '95',
+            ),
+            NestedMeasureWidget(
+              top: 600,
+              left: 10,
+              width: (width - 20) * .5,
+              label: 'Peito',
+              value: '95',
+            ),
+            // Positioned(
+            //   top: 75,
+            //   right: 10,
+            //   child: Container(width: 125, child: PerdaDeTempo()),
+            // ),
+            Positioned(
+              top: 340,
+              right: 10,
+              child: Row(
+                children: [
+                  MeasureLabelWidget(
+                    label: 'IMC',
+                    value: '22',
+                  ),
+                  SizedBox(width: 16),
+                ],
+              ),
+            ),
+            Positioned(
+              top: 220,
+              right: 10,
+              child: Row(
+                children: [
+                  MeasureLabelWidget(
+                    label: 'Gordura',
+                    value: '170',
+                  ),
+                  SizedBox(width: 16),
+                ],
+              ),
             ),
           ],
         ),
@@ -146,14 +211,11 @@ class MeasureLabelWidget extends StatelessWidget {
           text: TextSpan(
             text: '$value',
             style: TextStyle(
-              fontSize: 36,
-            ),
+                fontSize: 28, fontWeight: FontWeight.bold, color: Colors.black),
             children: [
               TextSpan(
                 text: ' $measure',
-                style: TextStyle(
-                  fontSize: 12,
-                ),
+                style: TextStyle(fontSize: 12, color: Colors.black),
               ),
             ],
           ),
@@ -162,3 +224,43 @@ class MeasureLabelWidget extends StatelessWidget {
     );
   }
 }
+
+// class PerdaDeTempo extends StatefulWidget {
+//   PerdaDeTempo({Key? key}) : super(key: key);
+
+//   @override
+//   _PerdaDeTempoState createState() => _PerdaDeTempoState();
+// }
+
+// class _PerdaDeTempoState extends State<PerdaDeTempo> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return SfRadialGauge(axes: <RadialAxis>[
+//       RadialAxis(
+//           startAngle: 0,
+//           endAngle: 360,
+//           showTicks: false,
+//           showLabels: false,
+//           axisLineStyle: AxisLineStyle(thickness: 10),
+//           pointers: <GaugePointer>[
+//             RangePointer(
+//                 value: 73,
+//                 width: 10,
+//                 color: Color(0xFFFFCD60),
+//                 enableAnimation: true,
+//                 cornerStyle: CornerStyle.bothCurve)
+//           ],
+//           annotations: <GaugeAnnotation>[
+//             GaugeAnnotation(
+//                 widget: Container(
+//                   child: MeasureLabelWidget(
+//                           label: 'IMC',
+//                           value: '170',
+//                         ),
+//                     ),
+//                 angle: 90,
+//                 positionFactor: 2.6)
+//           ])
+//     ]);
+//   }
+// }
